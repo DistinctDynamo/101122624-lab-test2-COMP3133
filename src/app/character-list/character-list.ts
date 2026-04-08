@@ -1,12 +1,13 @@
-import { Component, inject, OnInit, OnChanges, Input, SimpleChange } from '@angular/core';
+import { Component, inject, OnInit, OnChanges, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import { Harrypotterapiservice } from '../shared/harrypotterapiservice';
 import { catchError, finalize } from 'rxjs';
 import { Character } from '../models/character';
 import { CharacterDetails } from '../character-details/character-details';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-character-list',
-  imports: [CharacterDetails],
+  imports: [CharacterDetails, FormsModule],
   templateUrl: './character-list.html',
   styleUrl: './character-list.css',
 })
@@ -15,6 +16,7 @@ export class CharacterList implements OnInit {
 
   characterList: Character[] = []
   detailShowing: boolean = false
+  house:string ='All'
  
   ngOnInit(): void {
     this.loadCharacters()
@@ -30,6 +32,11 @@ export class CharacterList implements OnInit {
     ).subscribe(characters =>{
       this.characterList=characters
     })
+  }
+
+  get filteredCharacters(): Character[] {
+    if (this.house === 'All') return this.characterList;
+    return this.characterList.filter(c => c.house === this.house);
   }
 
   toggleDetailShowing():void{

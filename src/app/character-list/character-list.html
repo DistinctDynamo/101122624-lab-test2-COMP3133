@@ -1,7 +1,7 @@
 <h2>Harry Potter Characters</h2>
 
-<label for="house">House</label>
-<select name="house">
+<label for = "House">House</label>
+<select name = "House" [(ngModel)] = "house">
     <option value="Gryffindor">Gryffindor</option>
     <option value="Slytherin">Slytherin</option>
     <option value="Hufflepuff">Hufflepuff</option>
@@ -9,14 +9,14 @@
     <option value="All">All</option>
 </select>
 
-@for (character of characterList; track character.id){
-    <h2>{{character.name}}</h2>
-    <p>{{character.house}}</p>
-    <img src = {{character.image}}>
-    <button (click)="toggleDetailShowing()">Detail</button>
-    @if(detailShowing == true){
-    <app-character-details [character]="character"/>
-    }
+@for (character of filteredCharacters; track character.id){
+        <h2>{{character.name}}</h2>
+        <p>{{character.house}}</p>
+        <img src = {{character.image}}>
+        <button (click)="toggleDetailShowing()">Detail</button>
+            @if(detailShowing==true){
+            <app-character-details [character]="character"/>
+        }
 }
 
 
