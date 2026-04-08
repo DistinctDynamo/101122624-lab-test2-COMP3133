@@ -8,6 +8,7 @@ import { Character } from '../models/character';
 })
 export class Harrypotterapiservice {
   private readonly BASE_URL = "https://hp-api.onrender.com/api/characters"
+  private readonly SECONDARY_URL = "https://hp-api.onrender.com/api/character"
  
   private readonly httpClient = inject(HttpClient)
 
@@ -15,7 +16,7 @@ export class Harrypotterapiservice {
     return this.httpClient.get<Character[]>(this.BASE_URL)
   }
 
-  public getCharactersByHouse(house:string): Observable<Character[]>{
-    return this.httpClient.get<Character[]>(`this.BASE_URL/house/${house}`)
+  public getCharacterById(id:string): Observable<Character>{
+    return this.httpClient.get<Character>(`${this.SECONDARY_URL}/${id}`)
   }
 }

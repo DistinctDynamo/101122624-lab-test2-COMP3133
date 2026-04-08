@@ -9,15 +9,16 @@
     <option value="All">All</option>
 </select>
 
+<ul>
 @for (character of filteredCharacters; track character.id){
-        <h2>{{character.name}}</h2>
-        <p>{{character.house}}</p>
-        <img src = {{character.image}}>
-        <button (click)="toggleDetailShowing()">Detail</button>
-            @if(detailShowing==true){
-            <app-character-details [character]="character"/>
-        }
+        <li>
+            <h2>{{character.name}}</h2>
+            <h3>{{character.house}}</h3>
+            <img src = {{character.image}}>
+            <a class="btn" [routerLink]="['/details',character.id]">Detail</a>
+        </li>
 }
+</ul>
 
 
 
