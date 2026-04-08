@@ -36,4 +36,9 @@ constructor(private route: ActivatedRoute) {}
           this.characters=character
         })
   }
+
+  refreshPage() {
+  window.location.reload();
+}
+
 }

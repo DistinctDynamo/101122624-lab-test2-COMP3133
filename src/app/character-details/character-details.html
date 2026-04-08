@@ -1,5 +1,7 @@
 <a class="btn" [routerLink]="['']">Back</a>
 
+<button (click)="refreshPage()">Load Character</button>
+
 @for(char of characters; track char.id){
     <p>Name: {{char.name}}</p>
     <p>Species: {{char.species}}</p>
