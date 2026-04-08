@@ -16,7 +16,7 @@ export class CharacterDetails implements OnInit {
 
 private readonly HarrypotterapiService = inject(Harrypotterapiservice)
 
-character!:Character
+characters:Character[] = []
 
 constructor(private route: ActivatedRoute) {}
 
@@ -30,12 +30,10 @@ constructor(private route: ActivatedRoute) {}
         pipe(
           catchError( err => {
             console.log(err)
-            return of (null)
+            return of ([])
           })
         ).subscribe(character => {
-          if(character){
-            this.character=character
-          }
+          this.characters=character
         })
   }
 }

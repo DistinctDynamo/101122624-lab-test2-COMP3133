@@ -16,7 +16,7 @@ export class Harrypotterapiservice {
     return this.httpClient.get<Character[]>(this.BASE_URL)
   }
 
-  public getCharacterById(id:string): Observable<Character>{
-    return this.httpClient.get<Character>(`${this.SECONDARY_URL}/${id}`)
+  public getCharacterById(id:string): Observable<Character[]>{
+    return this.httpClient.get<Character[]>(`${this.SECONDARY_URL}/${id}`)
   }
 }

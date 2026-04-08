@@ -1,21 +1,23 @@
 <a class="btn" [routerLink]="['']">Back</a>
 
-<p>Name: {{character.name}}</p>
-<p>Species: {{character.species}}</p>
-<p>House: {{character.house}}</p>
-<p>Is character a wizard: {{character.wizard}}</p>
-<p>Ancestry: {{character.ancestry}}</p>
-<table>
-    <tr>
-        <th>Wood</th>
-        <th>Core</th>
-        <th>Length</th>
-    </tr>
-    <tr>
-        <td>{{character.wand.wood}}</td>
-        <td>{{character.wand.core}}</td>
-        <td>{{character.wand.length}}</td>
-    </tr>
-</table>
-<p>Actor: {{character.actor}}</p>
-<img src = {{character.image}}>
+@for(char of characters; track char.id){
+    <p>Name: {{char.name}}</p>
+    <p>Species: {{char.species}}</p>
+    <p>House: {{char.house}}</p>
+    <p>Is character a wizard: {{char.wizard}}</p>
+    <p>Ancestry: {{char.ancestry}}</p>
+    <table>
+        <tr>
+            <th>Wood</th>
+            <th>Core</th>
+            <th>Length</th>
+        </tr>
+        <tr>
+            <td>{{char.wand.wood}}</td>
+            <td>{{char.wand.core}}</td>
+            <td>{{char.wand.length}}</td>
+        </tr>
+    </table>
+    <p>Actor: {{char.actor}}</p>
+    <img src = {{char.image}}>
+}
