@@ -2,14 +2,12 @@
   "name": "101122624-lab-test2-comp3133",
   "version": "0.0.0",
   "scripts": {
-   "ng": "ng",
-  "start": "ng serve",
-  "build:client": "ng build --configuration production",
-  "build:server": "ng run 101122624-lab-test2-comp3133:server:production",
-  "build:ssr": "npm run build:client && npm run build:server",
-  "serve:ssr": "node dist/101122624-lab-test2-comp3133/server/server.mjs",
-  "watch": "ng build --watch --configuration development",
-  "test": "ng test"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:101122624-lab-test2-COMP3133": "node dist/101122624-lab-test2-COMP3133/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@10.9.3",
